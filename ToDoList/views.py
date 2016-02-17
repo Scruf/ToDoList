@@ -44,3 +44,23 @@ def edit(request,to_do_list_id):
     }
     edit_template = loader.get_template("ToDoList/edit.html")
     return HttpResponse(edit_template.render(context,request))
+
+
+def thankyou_edit(request,to_do_list_id):
+
+    if request.method == 'POST':
+        to_update = get_object_or_404(ToDoList,pk=to_do_list_id)
+        description = request.POST.get('description',None)
+        due_date = request.POST.get('date',None)
+        status = request.POST.get('status',None)
+        to_update.description = description
+        to_update.due_date = due_date
+        to_update.status = status
+        to_update.save()
+    to_do_items = ToDoList.objects.all()
+    templte = loader.get_template("ToDoList/index.html")
+    context = {
+        'list_t':to_do_items,
+    }
+
+    return HttpResponse(templte.render(context,request))
