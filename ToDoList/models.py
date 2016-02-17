@@ -4,7 +4,7 @@ from django.db import models
 
 class ToDoList(models.Model):
     description = models.CharField(max_length=200)
-    due_date = models.DateTimeField('date published')
+    due_date = models.DateTimeField()
     status = models.CharField(max_length=10)
 
     def __str__(self):

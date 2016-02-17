@@ -1,5 +1,23 @@
-<ul>
+<style>
+  th{
+    text-align: left;
+  }
+</style>
+<table>
+  <tr>
+    <th>description</th>
+    <th></th>
+    <th>Due Date</th>
+    <th></th>
+    <th>Status</th>
+  </tr>
 {% for item in list_t %}
-  <li>{{item.description}}</li>
-{%endfor%}
-</ul>
+<td>{{item.description}}</td>
+<td></td>
+<td>{{item.due_date}}</td>
+<td></td>
+<td>{{item.status}}</td>
+<td><button class="danger">Delete</td>
+  {%endfor%}
+</table>
+<button class="button">New</button>
