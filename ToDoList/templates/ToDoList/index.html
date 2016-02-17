@@ -5,19 +5,22 @@
 </style>
 <table>
   <tr>
+    <th>id</th>
+    <th></th>
     <th>description</th>
     <th></th>
     <th>Due Date</th>
     <th></th>
     <th>Status</th>
   </tr>
-{% for item in list_t %}
-<td>{{item.description}}</td>
-<td></td>
-<td>{{item.due_date}}</td>
-<td></td>
-<td>{{item.status}}</td>
-<td><button class="danger">Delete</td>
-  {%endfor%}
 </table>
+<ul>
+{% for item in list_t %}
+  <li>{{item.id}} {{item.description}} {{item.pub_date}} {{item.status}}
+    <button class="btn btn-primary"><a href="{{item.id}}/edit/">Edit</a></button>
+    <button class="danger">Delete</button></li>
+  {%endfor%}
+</ul>
+
+
 <button class="button"><a href="{% url 'new' %}">New</a></button>

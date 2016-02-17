@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponse
 from django.template import loader
+
 from .models import ToDoList
 # Create your views here.
 def index(request):
@@ -34,3 +35,12 @@ def thankyou(request):
         }
         thank_you_template = loader.get_template("ToDoList/thankyou.html")
         return HttpResponse(thank_you_template.render(context,request))
+
+
+def edit(request,to_do_list_id):
+    to_do = get_object_or_404(ToDoList,pk=to_do_list_id)
+    context = {
+        "items":to_do,
+    }
+    edit_template = loader.get_template("ToDoList/edit.html")
+    return HttpResponse(edit_template.render(context,request))

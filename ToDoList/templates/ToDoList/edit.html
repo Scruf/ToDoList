@@ -1,0 +1,6 @@
+<form method="POST" action="/">
+  {% csrf_token %}
+    Description<input type="text" value="{{items.description}}"name="description"><br>
+    Due Date<input type="text" value="{{items.due_date}}" name="date"><br>
+    status<input type="text" value="{{items.status}}" name="status"><br>
+<button type="submit">Update</button>
