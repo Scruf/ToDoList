@@ -1,5 +1,6 @@
 from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponse,HttpResponseRedirect
+from django.shortcuts import redirect
 from django.template import loader
 from django.core.urlresolvers import reverse
 
@@ -49,8 +50,6 @@ def thankyou(request):
     return HttpResponse(templte.render(context,request))
 
 
-
-
 def edit(request,to_do_list_id):
     to_do = get_object_or_404(ToDoList,pk=to_do_list_id)
     context = {
@@ -75,5 +74,15 @@ def thankyou_edit(request,to_do_list_id):
         context = {
             "list_t":to_do_items,
         }
-        templte = loader.get_template("ToDoList/index.html")
-        return HttpResponse(templte.render(context,request))
+        templete = loader.get_template("ToDoList/index.html")
+        return HttpResponse(templete.render(context,request))
+
+def delete(request,to_do_list_id):
+    t = get_object_or_404(ToDoList,pk=to_do_list_id)
+    t.delete()
+    to_do_list = ToDoList.objects.all()
+    templete =  loader.get_template('ToDoList/index.html')
+    context ={
+        'list_t':to_do_list,
+    }
+    return redirect('/ToDoList',context)

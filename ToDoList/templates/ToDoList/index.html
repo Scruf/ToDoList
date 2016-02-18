@@ -18,7 +18,7 @@
 <table>
   <tr>
     <td>ID</td>
-    <td>Description</td>		
+    <td>Description</td>
     <td>Due Date</td>
     <td>Status</td>
     <td id="no_border"></td>
@@ -31,7 +31,7 @@
     <td>{{item.due_date}}</td>
     <td>{{item.status}}</td>
     <td id="no_border"><button class="btn btn-primary"><a href="{{item.id}}/edit/">Edit</a></button></td>
-    <td id="no_border"><button class="danger">Delete</button></li></td>
+    <td id="no_border"><button class="danger"><a href="{{item.id}}/delete">Delete</button></li></td>
   </tr>
   {%endfor%}
 </table>
