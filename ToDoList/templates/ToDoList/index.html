@@ -13,28 +13,7 @@
     border: 0px solid;
   }
 </style>
-<!--                OLD CODE
-<table>
-  <tr>
-    <th>id</th>
-    <th></th>
-    <th>description</th>
-    <th></th>
-    <th>Due Date</th>
-    <th></th>
-    <th>Status</th>
-  </tr>
-</table>
--->
-<!--                 OLD CODE
-<ul>
-{% for item in list_t %}
-  <li>{{item.id}} {{item.description}} {{item.pub_date}} {{item.status}}
-    <button class="btn btn-primary"><a href="{{item.id}}/edit/">Edit</a></button>
-    <button class="danger">Delete</button></li>
-  {%endfor%}
-</ul>
--->
+
 
 <table>
   <tr>
@@ -45,11 +24,11 @@
     <td id="no_border"></td>
     <td id="no_border"></td>
   </tr>
-  {% for item in list_t %}
+  {% for item in list_t %} 
   <tr>
     <td>{{item.id}}</td>
     <td>{{item.description}}</td>
-    <td>{{item.pub_date}}</td>
+    <td>{{item.due_date}}</td>
     <td>{{item.status}}</td>
     <td id="no_border"><button class="btn btn-primary"><a href="{{item.id}}/edit/">Edit</a></button></td>
     <td id="no_border"><button class="danger">Delete</button></li></td>
