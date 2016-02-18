@@ -19,20 +19,10 @@ def index(request):
 def new(request):
     new_template = loader.get_template("ToDoList/new.html")
     context={
-        'new':'cunt',
+        'New':'Value',
     }
 
     return HttpResponse(new_template.render(context,request))
-
-
-def home(request):
-    to_do_list = ToDoList.objects.all()
-    template =  loader.get_template('ToDoList/index.html')
-    context ={
-        'list_t':to_do_list,
-    }
-    return HttpResponse(templte.render(context,request))
-
 
 
 def thankyou(request):
@@ -43,11 +33,12 @@ def thankyou(request):
         t = ToDoList(description=description,due_date=due_date,status=status)
         t.save()
         to_do_items = ToDoList.objects.all()
-    context = {
-        "Your":"Enterie"
-    }
-    templte = loader.get_template("ToDoList/saved.html")
-    return HttpResponse(templte.render(context,request))
+        context = {
+            "list_t":to_do_items,
+        }
+        return redirect('/ToDoList/',context)
+
+
 
 
 def edit(request,to_do_list_id):
@@ -75,7 +66,7 @@ def thankyou_edit(request,to_do_list_id):
             "list_t":to_do_items,
         }
         templete = loader.get_template("ToDoList/index.html")
-        return HttpResponse(templete.render(context,request))
+        return redirect('/ToDoList',context)
 
 def delete(request,to_do_list_id):
     t = get_object_or_404(ToDoList,pk=to_do_list_id)

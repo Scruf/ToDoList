@@ -11,8 +11,8 @@
     padding: 2px;
   }
 </style>
-<form method="POST" action="thankyou/" id="my_edit"></form>
-{% csrf_token %}
+<form method="POST" action="thankyou/" id="my_edit">
+  {% csrf_token %}
 <table>
     <tr>
       <td>Description</td>
@@ -24,11 +24,10 @@
     </tr>
     <tr>
       <td>Status</td>
-      <td><input type="text" value="{{items.status}}" name="status"></td>
+      <td><input type="radio" name="status" value="In Progress">In Progress</td>
+      <td><input type="radio" name="status" value="Done">Done</td>
     </tr>
-    <tr>
-        <td>
-            <button type="submit" form="my_edit">Update</button>
-        </td>
-    </tr>
+
 </table>
+<button type="submit" form="my_edit">Update</button>
+</form>
