@@ -2,7 +2,18 @@
   th{
     text-align: left;
   }
+  td{
+    border: 1px solid black;
+  }
+  table{
+    border-collapse: collapse;
+    width: 100%;
+  }
+  #no_border{
+    border: 0px solid;
+  }
 </style>
+<!--                OLD CODE
 <table>
   <tr>
     <th>id</th>
@@ -14,6 +25,8 @@
     <th>Status</th>
   </tr>
 </table>
+-->
+<!--                 OLD CODE
 <ul>
 {% for item in list_t %}
   <li>{{item.id}} {{item.description}} {{item.pub_date}} {{item.status}}
@@ -21,6 +34,27 @@
     <button class="danger">Delete</button></li>
   {%endfor%}
 </ul>
+-->
 
-
+<table>
+  <tr>
+    <td>ID</td>
+    <td>Description</td>		
+    <td>Due Date</td>
+    <td>Status</td>
+    <td id="no_border"></td>
+    <td id="no_border"></td>
+  </tr>
+  {% for item in list_t %}
+  <tr>
+    <td>{{item.id}}</td>
+    <td>{{item.description}}</td>
+    <td>{{item.pub_date}}</td>
+    <td>{{item.status}}</td>
+    <td id="no_border"><button class="btn btn-primary"><a href="{{item.id}}/edit/">Edit</a></button></td>
+    <td id="no_border"><button class="danger">Delete</button></li></td>
+  </tr>
+  {%endfor%}
+</table>
+<br>
 <button class="button"><a href="{% url 'new' %}">New</a></button>

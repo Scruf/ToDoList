@@ -1,6 +1,34 @@
+<!--
 <form method="POST" action="thankyou/">
   {% csrf_token %}
     Description<input type="text" value="{{items.description}}"name="description"><br>
     Due Date<input type="text" value="{{items.due_date}}" name="date"><br>
     status<input type="text" value="{{items.status}}" name="status"><br>
 <button type="submit">Update</button>
+-->
+<style type="text/css">
+  td{
+    padding: 2px;
+  }
+</style>
+<form method="POST" action="thankyou/" id="my_edit"></form>
+{% csrf_token %}
+<table>
+    <tr>
+      <td>Description</td>
+      <td><input type="text" value="{{items.description}}"name="description"></td>
+    </tr>
+    <tr>
+      <td>Due Date</td>
+      <td><input type="text" value="{{items.due_date}}" name="date"></td>
+    </tr>
+    <tr>
+      <td>Status</td>
+      <td><input type="text" value="{{items.status}}" name="status"></td>
+    </tr>
+    <tr>
+        <td>
+            <button type="submit" form="my_edit">Update</button>
+        </td>
+    </tr>
+</table>
