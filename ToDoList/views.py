@@ -12,7 +12,7 @@ def index(request):
     context = {
         'list_t':to_do_items,
     }
-
+    
     return HttpResponse(templte.render(context,request))
 
 
