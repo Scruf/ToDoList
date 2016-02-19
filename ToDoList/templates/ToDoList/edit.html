@@ -16,15 +16,16 @@
 
 <script src="{% static 'ToDoList/js/bootstrap.min.js'%} "></script>
 
-<script src="{% static 'ToDoList/js/ie10-viewport-bug-workaround.js'%}"></script>
-
-<script src="{% static 'ToDoList/js/ie-emulation-modes-warning.js' %}"> </script>
 
 <style type="text/css">
   td{
     padding: 2px;
   }
+  form{
+    margin:0 auto;
+  }
 </style>
+<div class="container">
 <form method="POST" action="thankyou/" id="my_edit">
   {% csrf_token %}
 <table>
@@ -45,3 +46,4 @@
 </table>
 <button type="submit" form="my_edit">Update</button>
 </form>
+</div>
