@@ -8,6 +8,10 @@ class ToDoList(models.Model):
     status = models.CharField(max_length=10)
 
     def __str__(self):
-        return self.description+"-"+self.status+" "
+        date = self.due_date.day
+        month =self. due_date.month
+        year = self.due_date.year
+        _date=str(date)+"/"+str(month)+"/"+str(year)
+        return self.description+"-"+self.status+" "+_date
 
 # Create your models here.

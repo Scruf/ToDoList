@@ -8,7 +8,7 @@ class ToDoListAdmin(admin.ModelAdmin):
     list_description = ['description']
     list_due_date = ['due_date']
     list_status = ['status']
-    fieldsets =[
+    list_display =[
         ('Description',{'fields':['list_description']}),
         ('Due Date',{'fields':['list_due_date']}),
         ('Status',{'fields':['status']}),
